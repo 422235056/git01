@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd}
+  </style>
+</head>
+<body>
+  <canvas width="500" height="400" id="c3"></canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var ctx = c3.getContext("2d");
+    //1:创建渐变对象
+    var g = ctx.createLinearGradient(0,0,500,0);
+    //2:添加颜色点
+    g.addColorStop(0,"red");
+    g.addColorStop(0.3,"yellow");
+    g.addColorStop(0.6,"blue");
+    g.addColorStop(1,"green");
+    //3:赋值填充或描边样式
+    ctx.fillStyle = g;
+    //4:绘制
+    ctx.fillRect(0,0,500,30);
+    var str = "东东有一架小飞机";
+    ctx.fillText(str,200,100);
+  </script>
+</body>
+</html>

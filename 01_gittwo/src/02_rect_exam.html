@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd}
+  </style>
+</head>
+<body>
+  <h1>绘制矩形--左右移动矩形</h1>
+  <canvas width="500" height="400" id="c3">
+    您的浏览器版本太低，请升级!!!
+  </canvas>
+  <script>
+    //1:获取画布，获取画笔
+    var c3 = document.getElementById("c3");
+    var ctx = c3.getContext("2d");
+    //2:创建变量保存x坐标
+    var x = 0;
+    var xDirection = 1;//方向 1向右  -1向左
+    //3:创建定时器
+    var t = setInterval(function(){
+      ctx.clearRect(0,0,500,400);
+      //4:修改x坐标
+      x += 1 * xDirection;
+      if(x>400){
+        xDirection = -1; //开始向左
+      }else if(x < 0 ){
+        xDirection = 1;  //开如向右
+      }
+      //5:绘制矩形
+      ctx.strokeRect(x,0,100,80);
+    },10/60);
+
+  </script>
+</body>
+</html>

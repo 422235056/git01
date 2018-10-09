@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd}
+  </style>
+</head>
+<body>
+  <canvas width="500" height="400" id="c3"></canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var ctx = c3.getContext("2d");
+    var str = "abcxyz";
+    ctx.font = "18px sans-serif";
+    ctx.textBaseline = "top"; //修改文本基线
+    ctx.fillText(str,0,0);    //填充文本
+    var str = "lily出差了";
+    ctx.font = "21px sans-serif";
+    ctx.strokeText(str,410,0);//描边文本
+    //左下角 右下角  居中
+    ctx.strokeText(str,0,400-26);//描边文本
+    //获取文本宽度,必须先绘制文本才能得到精确宽度
+    var w = ctx.measureText(str).width; 
+    ctx.strokeText(str,500-w,400-26); 
+    ctx.strokeText(str,500/2-w/2,400/2-26/2); 
+
+
+
+
+
+  </script>
+</body>
+</html>

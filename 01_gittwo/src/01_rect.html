@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd}
+  </style>
+</head>
+<body>
+  <h1>绘制矩形</h1>
+  <canvas width="500" height="400" id="c3">
+    您的浏览器版本太低，请升级!!!
+  </canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var ctx = c3.getContext("2d");
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "red";
+    ctx.strokeRect(0,0,100,80);
+
+    ctx.fillStyle = "blue";
+    ctx.fillRect(400,0,100,80);
+
+    //左上角矩形清除??
+    //ctx.clearRect(0,0,101,81)
+    //9:48
+    //左下角
+    ctx.strokeRect(0,320,100,80);     
+    //右下角
+    ctx.strokeRect(400,320,100,80);    
+    //居中
+    ctx.strokeRect(500/2-100/2,400/2-80/2,100,80);
+  </script>
+
+
+
+
+
+
+</body>
+</html>

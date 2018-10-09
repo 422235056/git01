@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd}
+  </style>
+</head>
+<body>
+  <h1>张嘴闭嘴</h1>
+  <canvas width="500" height="400" id="c3"></canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var ctx = c3.getContext("2d");
+    function closeMouth(){
+      //1:绘制最外围轮廓
+      ctx.beginPath();        //开始新路径
+      ctx.arc(250,200,100,0,2*Math.PI);//绘圆
+      ctx.lineTo(250,200);    //向中间绘制直线
+      ctx.stroke();           //描边
+      //2:填充眼球(蓝色)
+      ctx.beginPath();       //开始新路径
+      ctx.arc(265,150,25,0,2*Math.PI);//绘圆
+      ctx.fillStyle = "#38f";//填充样式
+      ctx.fill();            //填充
+      //3:填充眼神(白色)
+      ctx.beginPath(); 
+      ctx.fillStyle = "#fff";
+      ctx.arc(270,150,3,0,2*Math.PI);
+      ctx.fill();
+    }
+    //closeMouth();
+    function openMouth(){
+      //1:绘制最外围轮廓
+      ctx.beginPath();
+      ctx.arc(250,200,100,30*Math.PI/180,330*Math.PI/180);
+      ctx.lineTo(250,200);
+      ctx.closePath();
+      ctx.stroke();
+      //2:绘制填充眼球
+      ctx.beginPath();
+      ctx.arc(263,150,25,0,2*Math.PI);
+      ctx.fillStyle = "#38f";
+      ctx.fill();
+      //3:绘制填充眼神
+      ctx.beginPath();
+      ctx.arc(270,153,3,0,2*Math.PI);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
+    }
+    //openMouth();
+    var index = 0;
+    setInterval(function(){
+      ctx.clearRect(0,0,500,400);
+      index++;
+      if(index%2==0){
+        openMouth();
+      }else{
+        closeMouth();
+      }
+    },1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd}
+  </style>
+</head>
+<body>
+  <canvas width="500" height="400" id="c3"></canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var ctx = c3.getContext("2d");
+    //1:开始一条新路径
+    ctx.beginPath();
+    ctx.moveTo(250,200);//2:移动某个点
+    ctx.lineTo(300,200); //直线
+    ctx.lineTo(300,300); //直线
+    ctx.closePath();     //闭合路径
+    ctx.stroke();        //4:描边
+
+    ctx.beginPath();     //开始一条新路径
+    ctx.arc(100,100,25,0,2*Math.PI);//绘制圆拱形
+    ctx.stroke();        
+
+    ctx.beginPath();
+    ctx.arc(350,100,25,-90*Math.PI/180,90*Math.PI/180);
+    ctx.stroke();
+  </script>
+</body>
+</html>

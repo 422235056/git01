@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{text-align: center}
+    canvas{background: #ddd}
+  </style>
+</head>
+<body>
+  <canvas width="500" height="400" id="c3"></canvas>
+  <script>
+    var c3 = document.getElementById("c3");
+    var ctx = c3.getContext("2d");
+    //1:绘制灰色底框
+    ctx.beginPath();
+    ctx.strokeStyle = "#aaa";
+    ctx.arc(250,200,100,0,2*Math.PI);
+    ctx.lineWidth = 15;
+    ctx.stroke();
+    //2:创建二个变量 起始角度与结束角度
+    var start = -90;
+    var end = -90;
+    var num = 0;  //描边进度条中数字值 1%
+    //3:创建定时器
+    var t = setInterval(function(){
+     ctx.clearRect(0,0,500,400); 
+     ctx.beginPath();
+     ctx.strokeStyle = "#aaa";
+     ctx.arc(250,200,100,0,2*Math.PI);
+     ctx.lineWidth = 15;
+     ctx.stroke();
+
+
+     num += 1;
+     if(num > 100){num=100}
+     ctx.font = "32px SimHei";
+     ctx.fillText(num+"%",226,200);
+     //4:开始新路径
+     ctx.beginPath();
+     //5:绘制动态圆拱形
+     end += 3.6;
+     ctx.arc(250,200,100,start*Math.PI/180,end*Math.PI/180);
+     //6:描边
+     ctx.strokeStyle = "#0a0";
+     ctx.stroke();
+
+     if(num == 100){clearInterval(t)}
+    },100);
+    
+    
+  </script>
+</body>
+</html>

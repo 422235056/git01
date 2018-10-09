@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{text-align: center;background: #fff}
+    .container{
+      position: relative;
+    }
+    .loginForm{
+      background-color: #fff;
+      border:1px solid #ccc;
+      border-radius: 5px;
+      width:320px;
+      height:210px;
+      position: absolute;
+      left:50%;
+      margin-left:-160px;
+      padding-top:50px;
+      margin-top:30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>作业:以视频为背景表单</h1>
+  <div class="container">
+      <!--表单-->
+      <form class="loginForm">
+        用户名: <input type="text"> <br>
+        密码: <input type="text"> <br>
+        <input type="submit" value="注册"> <br>
+      </form>
+      <!--视频背景-->
+      <video src="../../day01/src/res/x.mp4"
+       autoplay muted loop>
+        您的浏览器版本太低 请升级!!!
+      </video>
+  </div>
+</body>
+</html>
